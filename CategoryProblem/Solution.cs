@@ -66,26 +66,35 @@ namespace CategoryProblem
 
         public int[] FindCategoriesOfLevel(int level)
         {
-            int[] roots = _categories
-                .Where(category => category.ParentId == RootParentId)
-                .Select(category => category.Id)
-                .ToArray();
+            int currentLevel = 1;
 
-            int[] parents = roots;
+            int[] roots = FindChildrenForLayer(new[] { RootParentId });
 
-            int[] children = _categories
-                .Where(category => parents.Contains(category.ParentId))
-                .Select(category => category.Id)
-                .ToArray();
+
+
+            int[] children = FindChildrenForLayer(roots);
 
             if (level == 1)
             { 
                 return roots;
             }
-            else
+            else if (level == 2)
             {
                 return children;
             }
+            else
+            {
+                return FindChildrenForLayer(children);
+            }
+        }
+
+        private int[] FindChildrenForLayer(int[] parents)
+        {
+            return _categories
+                .Where(category => parents.Contains(category.ParentId))
+                .OrderBy(category => category.Id)
+                .Select(category => category.Id)
+                .ToArray();
         }
 
         private class Category

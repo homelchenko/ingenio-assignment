@@ -24,6 +24,16 @@ namespace CategoryProblem.Tests
             Assert.Equal(new[] {101, 102, 201 }, categories);
         }
 
+        [Fact]
+        public void When3rdLevel_ShouldReturnRootGrandChildren()
+        {
+            // Act
+            int[] categories = FindCategoriesOfLevel(3);
+
+            // Assert
+            Assert.Equal(new[] {103, 109, 202 }, categories);
+        }
+
         private static int[] FindCategoriesOfLevel(int level)
         {
             return new Solution().FindCategoriesOfLevel(level);
