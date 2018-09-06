@@ -11,7 +11,7 @@ namespace CategoryProblem.Tests
             string print = PrintCategory(100);
 
             // Assert
-            Assert.Equal("ParentCategoryID=-1,Name=Business,Keywords=Money", print);
+            Assert.Equal("ParentCategoryID=-1, Name=Business, Keywords=Money", print);
         }
 
         [Fact]
@@ -21,7 +21,7 @@ namespace CategoryProblem.Tests
             string print = PrintCategory(101);
 
             // Assert
-            Assert.Equal("ParentCategoryID=100,Name=Accounting,Keywords=Taxes", print);
+            Assert.Equal("ParentCategoryID=100, Name=Accounting, Keywords=Taxes", print);
         }
 
         [Fact]
@@ -31,7 +31,7 @@ namespace CategoryProblem.Tests
             string print = PrintCategory(201);
 
             // Assert
-            Assert.Equal("ParentCategoryID=200,Name=Computer,Keywords=Teaching", print);
+            Assert.Equal("ParentCategoryID=200, Name=Computer, Keywords=Teaching", print);
         }
 
         [Fact]
@@ -41,7 +41,7 @@ namespace CategoryProblem.Tests
             string print = PrintCategory(202);
 
             // Assert
-            Assert.Equal("ParentCategoryID=201,Name=Operating System,Keywords=Teaching", print);
+            Assert.Equal("ParentCategoryID=201, Name=Operating System, Keywords=Teaching", print);
         }
 
         private string PrintCategory(int categoryId)

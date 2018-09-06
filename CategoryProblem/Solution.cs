@@ -26,10 +26,10 @@ namespace CategoryProblem
             {
                 Category parent = FindKeywordfulParent(category.ParentId);
 
-                return $"ParentCategoryID={category.ParentId},Name={category.Name},Keywords={parent.Keywords}";
+                return $"ParentCategoryID={category.ParentId}, Name={category.Name}, Keywords={parent.Keywords}";
             }
 
-            return $"ParentCategoryID={category.ParentId},Name={category.Name},Keywords={category.Keywords}";
+            return $"ParentCategoryID={category.ParentId}, Name={category.Name}, Keywords={category.Keywords}";
         }
 
         private Category FindKeywordfulParent(int parentId)
