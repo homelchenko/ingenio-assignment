@@ -24,7 +24,17 @@ namespace CategoryProblem.Tests
             Assert.Equal("ParentCategoryID=100,Name=Accounting,Keywords=Taxes", print);
         }
 
-        public string PrintCategory(int categoryId)
+        [Fact]
+        public void WhenProvidedRootChildCategoryWithoutKeyword_ShouldReturnAllOwnPropertiesAndRootsKeyword()
+        {
+            // Act
+            string print = PrintCategory(201);
+
+            // Assert
+            Assert.Equal("ParentCategoryID=200,Name=Computer,Keywords=Teaching", print);
+        }
+
+        private string PrintCategory(int categoryId)
         {
             return new Solution().PrintCategory(categoryId);
         }
