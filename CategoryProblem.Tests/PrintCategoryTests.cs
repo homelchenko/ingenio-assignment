@@ -13,5 +13,15 @@ namespace CategoryProblem.Tests
             // Assert
             Assert.Equal("ParentCategoryID=-1,Name=Business,Keywords=Money", print);
         }
+
+        [Fact]
+        public void WhenProvidedCategoryContainingKeyword_ShouldReturnAllOwnProperties()
+        {
+            // Act
+            string print = Solution.PrintCategory(101);
+
+            // Assert
+            Assert.Equal("ParentCategoryID=100,Name=Accounting,Keywords=Taxes", print);
+        }
     }
 }
