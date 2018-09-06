@@ -1,17 +1,19 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace CategoryProblem
 {
     public class Solution
     {
+        private const int RootParentId = -1;
         private readonly List<Category> _categories;
 
         public Solution()
         {
             _categories = new List<Category>()
             {
-                new Category { Id = 100, ParentId = -1, Name = "Business", Keywords = "Money" },
-                new Category { Id = 200, ParentId = -1, Name = "Tutoring", Keywords = "Teaching" },
+                new Category { Id = 100, ParentId = RootParentId, Name = "Business", Keywords = "Money" },
+                new Category { Id = 200, ParentId = RootParentId, Name = "Tutoring", Keywords = "Teaching" },
                 new Category { Id = 101, ParentId = 100, Name = "Accounting", Keywords = "Taxes" },
                 new Category { Id = 102, ParentId = 100, Name = "Taxation" },
                 new Category { Id = 201, ParentId = 200, Name = "Computer" },
@@ -64,13 +66,25 @@ namespace CategoryProblem
 
         public int[] FindCategoriesOfLevel(int level)
         {
+            int[] roots = _categories
+                .Where(category => category.ParentId == RootParentId)
+                .Select(category => category.Id)
+                .ToArray();
+
+            int[] parents = roots;
+
+            int[] children = _categories
+                .Where(category => parents.Contains(category.ParentId))
+                .Select(category => category.Id)
+                .ToArray();
+
             if (level == 1)
             { 
-                return new[] { 100, 200 };
+                return roots;
             }
             else
             {
-                return new[] { 101, 102, 201 };
+                return children;
             }
         }
 
