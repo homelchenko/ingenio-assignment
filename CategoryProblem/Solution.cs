@@ -14,6 +14,7 @@ namespace CategoryProblem
                 new Category { Id = 101, ParentId = 100, Name = "Accounting", Keywords = "Taxes" },
                 new Category { Id = 200, ParentId = -1, Name = "Tutoring", Keywords = "Teaching" },
                 new Category { Id = 201, ParentId = 200, Name = "Computer" },
+                new Category { Id = 202, ParentId = 201, Name = "Operating System" },
             };
         }
 
@@ -37,7 +38,7 @@ namespace CategoryProblem
 
             if (string.IsNullOrEmpty(category.Keywords))
             {
-                category = FindCategory(category.ParentId);
+                category = FindKeywordfulParent(category.ParentId);
             }
 
             return category;

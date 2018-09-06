@@ -34,6 +34,16 @@ namespace CategoryProblem.Tests
             Assert.Equal("ParentCategoryID=200,Name=Computer,Keywords=Teaching", print);
         }
 
+        [Fact]
+        public void WhenProvidedCategoryWithoutKeyword_ShouldReturnAllOwnPropertiesAndKeywordFromAscendant()
+        {
+            // Act
+            string print = PrintCategory(202);
+
+            // Assert
+            Assert.Equal("ParentCategoryID=201,Name=Operating System,Keywords=Teaching", print);
+        }
+
         private string PrintCategory(int categoryId)
         {
             return new Solution().PrintCategory(categoryId);
