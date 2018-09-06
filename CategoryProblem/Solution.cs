@@ -32,12 +32,12 @@ namespace CategoryProblem
 
             if (string.IsNullOrEmpty(category.Keywords))
             {
-                Category parent = FindKeywordfulParent(category.ParentId);
+                Category ancestor = FindKeywordfulParent(category.ParentId);
 
-                return $"ParentCategoryID={category.ParentId}, Name={category.Name}, Keywords={parent.Keywords}";
+                return GetPrintableString(category.ParentId, category.Name, ancestor.Keywords);
             }
 
-            return $"ParentCategoryID={category.ParentId}, Name={category.Name}, Keywords={category.Keywords}";
+            return GetPrintableString(category.ParentId, category.Name, category.Keywords);
         }
 
         private Category FindKeywordfulParent(int parentId)
@@ -55,6 +55,11 @@ namespace CategoryProblem
         private Category FindCategory(int categoryId)
         {
             return _categories.Find(c => c.Id == categoryId);
+        }
+
+        private string GetPrintableString(int parentId, string name, string keywords)
+        { 
+            return $"ParentCategoryID={parentId}, Name={name}, Keywords={keywords}";
         }
 
         private class Category
