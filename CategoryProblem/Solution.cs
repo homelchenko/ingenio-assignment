@@ -64,7 +64,14 @@ namespace CategoryProblem
 
         public int[] FindCategoriesOfLevel(int level)
         {
-            return new[] { 100, 200 };
+            if (level == 1)
+            { 
+                return new[] { 100, 200 };
+            }
+            else
+            {
+                return new[] { 101, 102, 201 };
+            }
         }
 
         private class Category
