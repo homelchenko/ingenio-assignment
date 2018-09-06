@@ -66,6 +66,11 @@ namespace CategoryProblem
 
         public int[] FindCategoriesOfLevel(int level)
         {
+            if (level < 1)
+            {
+                return new int[0];
+            }
+            
             int currentLevel = 0;
 
             int[] categories = { RootParentId };
