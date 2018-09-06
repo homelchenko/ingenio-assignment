@@ -11,10 +11,13 @@ namespace CategoryProblem
             _categories = new List<Category>()
             {
                 new Category { Id = 100, ParentId = -1, Name = "Business", Keywords = "Money" },
-                new Category { Id = 101, ParentId = 100, Name = "Accounting", Keywords = "Taxes" },
                 new Category { Id = 200, ParentId = -1, Name = "Tutoring", Keywords = "Teaching" },
+                new Category { Id = 101, ParentId = 100, Name = "Accounting", Keywords = "Taxes" },
+                new Category { Id = 102, ParentId = 100, Name = "Taxation" },
                 new Category { Id = 201, ParentId = 200, Name = "Computer" },
+                new Category { Id = 103, ParentId = 101, Name = "Taxation" },
                 new Category { Id = 202, ParentId = 201, Name = "Operating System" },
+                new Category { Id = 109, ParentId = 101, Name = "Small Business Tax" },
             };
         }
 
