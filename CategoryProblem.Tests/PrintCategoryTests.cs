@@ -8,7 +8,7 @@ namespace CategoryProblem.Tests
         public void WhenProvidedRootCategoryContainingKeyword_ShouldReturnAllOwnProperties()
         {
             // Act
-            string print = Solution.PrintCategory(100);
+            string print = PrintCategory(100);
 
             // Assert
             Assert.Equal("ParentCategoryID=-1,Name=Business,Keywords=Money", print);
@@ -18,10 +18,15 @@ namespace CategoryProblem.Tests
         public void WhenProvidedCategoryContainingKeyword_ShouldReturnAllOwnProperties()
         {
             // Act
-            string print = Solution.PrintCategory(101);
+            string print = PrintCategory(101);
 
             // Assert
             Assert.Equal("ParentCategoryID=100,Name=Accounting,Keywords=Taxes", print);
+        }
+
+        public string PrintCategory(int categoryId)
+        {
+            return new Solution().PrintCategory(categoryId);
         }
     }
 }
