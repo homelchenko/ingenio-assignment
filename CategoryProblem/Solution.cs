@@ -80,7 +80,7 @@ namespace CategoryProblem
                 
                 categories = FindChildrenForLayer(categories);
             }
-            while (currentLevel < level);
+            while (currentLevel < level && categories.Length != 0);
 
             return categories;
         }

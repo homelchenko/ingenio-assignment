@@ -45,8 +45,10 @@ namespace CategoryProblem.Tests
         }
 
         [Theory]
+        [InlineData(int.MinValue)]
         [InlineData(-1)]
         [InlineData(0)]
+        [InlineData(int.MaxValue)]
         public void WhenWrongLevel_ShouldReturnEmpty(int wrongLevel)
         {
             // Act
