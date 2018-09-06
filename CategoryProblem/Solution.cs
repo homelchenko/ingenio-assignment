@@ -22,6 +22,11 @@ namespace CategoryProblem
         {
             Category category = FindCategory(categoryId);
 
+            if (category == null)
+            { 
+                return string.Empty;
+            }
+
             if (string.IsNullOrEmpty(category.Keywords))
             {
                 Category parent = FindKeywordfulParent(category.ParentId);

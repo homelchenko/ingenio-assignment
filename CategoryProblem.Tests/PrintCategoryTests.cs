@@ -44,6 +44,16 @@ namespace CategoryProblem.Tests
             Assert.Equal("ParentCategoryID=201, Name=Operating System, Keywords=Teaching", print);
         }
 
+        [Fact]
+        public void WhenProvidedCategoryDoesntExist_ShouldReturnEmptyString()
+        {
+            // Act
+            string print = PrintCategory(1000);
+
+            // Assert
+            Assert.Equal(string.Empty, print);
+        }
+
         private string PrintCategory(int categoryId)
         {
             return new Solution().PrintCategory(categoryId);
