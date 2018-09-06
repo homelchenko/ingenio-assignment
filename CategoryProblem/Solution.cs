@@ -66,26 +66,18 @@ namespace CategoryProblem
 
         public int[] FindCategoriesOfLevel(int level)
         {
-            int currentLevel = 1;
+            int currentLevel = 0;
 
-            int[] roots = FindChildrenForLayer(new[] { RootParentId });
-
-
-
-            int[] children = FindChildrenForLayer(roots);
-
-            if (level == 1)
-            { 
-                return roots;
-            }
-            else if (level == 2)
+            int[] categories = { RootParentId };
+            do
             {
-                return children;
+                currentLevel++;
+                
+                categories = FindChildrenForLayer(categories);
             }
-            else
-            {
-                return FindChildrenForLayer(children);
-            }
+            while (currentLevel < level);
+
+            return categories;
         }
 
         private int[] FindChildrenForLayer(int[] parents)
