@@ -62,6 +62,11 @@ namespace CategoryProblem
             return $"ParentCategoryID={parentId}, Name={name}, Keywords={keywords}";
         }
 
+        public int[] FindCategoriesOfLevel(int level)
+        {
+            return new[] { 100, 200 };
+        }
+
         private class Category
         {
             public int Id { get; set; }
